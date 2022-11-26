@@ -1,0 +1,443 @@
+/* LOGIN MAIN CSS  */
+:root {
+	/*  --bg-color: #000000;
+    --bg-surface-color: #121212;
+    --font-color: #808080;
+    --primary-color: #81D4FA;
+    --secondary-color: #FF5722;
+    --error-color : #721c24;
+    --error-bg: #f8d7da;
+    --error-border-color: #f5c6cb;
+    --success-color: #155724;
+    --success-bg: #d4edda;
+    --success-border-color: #c3e6cb; 
+    --transparent-color: transparent; */
+	/* --bg-color: #E0E0E0;
+    --bg-surface-color: #fff;
+    --font-color: #121212;
+    --primary-color: #81D4FA;
+    --secondary-color: #FF5722;
+    --error-color : #721c24;
+    --error-bg: #f8d7da;
+    --error-border-color: #f5c6cb;
+    --success-color: #155724;
+    --success-bg: #d4edda;
+    --success-border-color: #c3e6cb;
+    --transparent-color: #121212; */
+
+}
+
+body {
+	margin: 0;
+	box-sizing: border-box;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: var(--bg-color);
+}
+*,
+*::after,
+*::before {
+	padding: 0;
+	margin: 0;
+	box-sizing: inherit;
+}
+
+
+/* SPINNER CSS START */
+.spinner-global {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 33;
+	display: none;
+}
+.spinner {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.spinner-wrapper {
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	background-color: var(--bg-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+	padding: 2px;
+	overflow: hidden;
+}
+.animate {
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	background-color: var(--bg-surface-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--font-color);
+	z-index: 2;
+}
+.spinner-wrapper::before {
+	content: "";
+	width: 200%;
+	height: 50%;
+	position: absolute;
+	left: -150%;
+	top: 25%;
+	background-color: var(--primary-color);
+	animation: rotate1 2s linear infinite;
+}
+.spinner-wrapper::after {
+	content: "";
+	width: 200%;
+	height: 50%;
+	position: absolute;
+	right: -150%;
+	top: 25%;
+	background-color: var(--secondary-color);
+	animation: rotate2 2s linear infinite;
+}
+@keyframes rotate1 {
+	0% {
+		transform: rotate(0deg);
+		transform-origin: 100% 50%;
+	}
+	100% {
+		transform: rotate(360deg);
+		transform-origin: 100% 50%;
+	}
+}
+@keyframes rotate2 {
+	0% {
+		transform: rotate(0deg);
+		transform-origin: 0% 50%;
+	}
+	100% {
+		transform: rotate(360deg);
+		transform-origin: 0% 50%;
+	}
+}
+/* SPINNER CSS END */
+
+
+
+/* TOAST WRAPPER CSS START */
+.toast-wrapper {
+	position: absolute;
+	right: 1rem;
+	top: 1rem;
+	max-width: 280px;
+}
+.toast {
+	position: relative;
+	width: 100%;
+	margin: 0.5rem 0;
+	z-index: 200;
+}
+.toast-message {
+	width: 100%;
+}
+.close-toast {
+	position: absolute;
+	right: 4px;
+	top: 2px;
+	font-size: 1.2rem;
+	cursor: pointer;
+}
+.error-message {
+	background-color: var(--error-bg);
+	color: var(--error-color);
+	padding: 0.5rem;
+}
+.success-message {
+	background-color: var(--success-bg);
+	color: var(--success-color);
+	padding: 0.5rem;
+}
+/* TOAST WRAPPER CSS END */
+
+
+/* THEME ICONS CSS START  */
+.theme-mode {
+	color: var(--font-color);
+	position: absolute;
+	top: 40px;
+	right: 40px;
+}
+#darkMode {
+	display: none;
+}
+.theme-mode i {
+	font-size: 1.5rem;
+	cursor: pointer;
+}
+.theme-mode i:hover {
+	color: var(--secondary-color);
+}
+/* THEME ICONS CSS END */
+
+
+/* SHOW EMPLOYEE TABLE CSS START */
+.filter {
+	margin: 1rem 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.search-box {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	box-shadow: 0px 0px 2px var(--font-color);
+	padding: 0.2rem 0.5rem;
+	border-radius: 5px;
+	width: 300px;
+}
+.search-box:focus {
+	box-shadow: 0px 0px 2px var(--primary-color);
+}
+.search-icon {
+	font-size: 1.2rem;
+	color: var(--font-color);
+	margin-right: 0.5rem;
+}
+.search-box input {
+	outline: none;
+	border: none;
+	font-size: 1.2rem;
+	color: var(--font-color);
+	width: 100%;
+	background-color: transparent;
+}
+.add-btn {
+	width: 100px !important;
+}
+.show-contact-main {
+	width: 1000px;
+	max-height: calc(100vh - 40px);
+	margin: 0px auto;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+}
+.table-wrapper {
+	width: 100%;
+}
+table {
+	width: 100%;
+	border-collapse: collapse;
+	color: var(--font-color);
+}
+thead {
+	background-color: var(--bg-surface-color);
+}
+tr th {
+	font-weight: 600;
+	text-transform: capitalize;
+	padding: 0.5rem;
+}
+tbody tr:nth-of-type(odd) {
+	background-color: #808080;
+	color: #ffffff;
+}
+tr td {
+	text-align: center;
+	padding: 0.5rem;
+	font-weight: 400;
+}
+/* SHOW EMPLOYEE TABLE CSS END */
+
+
+/* ADD EMPLOYEE FORM CSS START */
+.employee-form-main {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	color: var(--font-color);
+	transform: translate(-50%, -50%);
+}
+.employee-wrapper {
+	width: 500px;
+	margin: 0 auto;
+	position: relative;
+	overflow: hidden;
+	transform: translateY(-1000px);
+}
+.clear {
+	animation: clear 1s forwards;
+}
+@keyframes clear {
+	from {
+		transform: translateY(-1000px);
+	}
+	to {
+		transform: none;
+	}
+}
+.employee-wrapper form {
+	width: calc(100% - 4px);
+	background-color: var(--bg-surface-color);
+	padding: 2rem;
+	margin: 2px;
+}
+.employee-wrapper::before {
+	content: "";
+	position: absolute;
+	left: -50%;
+	top: -50%;
+	width: 100%;
+	height: 100%;
+	background-color: var(--secondary-color);
+	animation: animate1 4s linear infinite;
+	z-index: -1;
+}
+.employee-wrapper::after {
+	content: "";
+	position: absolute;
+	right: -50%;
+	bottom: -50%;
+	width: 100%;
+	height: 100%;
+	background-color: var(--primary-color);
+	animation: animate2 4s linear infinite;
+	z-index: -1;
+}
+@keyframes animate1 {
+	0% {
+		transform: rotate(0deg);
+		transform-origin: 100% 100%;
+	}
+	100% {
+		transform: rotate(360deg);
+		transform-origin: 100% 100%;
+	}
+}
+@keyframes animate2 {
+	0% {
+		transform: rotate(0deg);
+		transform-origin: 0% 0%;
+	}
+	100% {
+		transform: rotate(360deg);
+		transform-origin: 0% 0%;
+	}
+}
+.employee-title {
+	width: 150px;
+	margin: auto;
+	padding: 0.5rem;
+	font-weight: 500;
+	text-align: center;
+	display: inline-block;
+	position: relative;
+}
+.employee-title::before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0%;
+	height: 2px;
+	text-align: center;
+	background-color: var(--primary-color);
+	transition: width 0.5s ease-in-out;
+}
+.employee-title:hover.login-title::before {
+	content: "";
+	width: 100%;
+}
+.form-box {
+	display: flex;
+	flex-direction: column;
+	margin: 0.5rem 0;
+}
+.form-box label {
+	font-size: 1rem;
+}
+.form-box input {
+	height: 2rem;
+	font-size: 1rem;
+	outline: none;
+	border: none;
+	box-shadow: 0px 0px 2px var(--font-color);
+	border-radius: 5px;
+	padding: 0 0.5rem;
+	background-color: transparent;
+	margin: 0.5rem 0;
+	color: var(--font-color);
+}
+.form-box input:focus {
+	outline: 2px solid var(--primary-color);
+}
+.employee-btn {
+	width: 100%;
+	height: 2rem;
+	font-size: 1rem;
+	background: transparent;
+	border: none;
+	box-shadow: 0px 0px 2px var(--font-color);
+	border-radius: 5px;
+	color: var(--font-color);
+	cursor: pointer;
+	transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+}
+.employee-btn:hover {
+	background-color: var(--primary-color);
+	color: #ffffff;
+	box-shadow: none;
+}
+.employee-btn:focus {
+	outline: 2px solid var(--primary-color);
+}
+.form-link {
+	width: 100%;
+	height: 2rem;
+	text-decoration: none;
+	font-size: 1rem;
+	color: var(--font-color);
+	box-shadow: 0px 0px 2px var(--font-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 5px;
+	margin-top: 0.5rem;
+	transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+	outline: none;
+}
+.form-link:focus {
+	outline: 2px solid var(--primary-color);
+}
+.form-link:hover {
+	background-color: var(--secondary-color);
+	color: #ffffff;
+	box-shadow: none;
+}
+/* ADD EMPLOYEE FORM CSS END */
+
+
+/* RESPONSIVE QUERY START  */
+@media only screen and (max-width: 1000px) {
+	.show-contact-main {
+		width: calc(100% - 20px);
+	}
+	table {
+		overflow-x: scroll;	
+	}
+
+	tr td {
+		padding: 0.2rem;
+	}
+
+	.operation a:first-of-type {
+		margin-right: 0.2rem;
+	}
+}
+@media only screen and (max-width: 600px) {
+	.employee-wrapper {
+		width: 100%;
+	}
+}
